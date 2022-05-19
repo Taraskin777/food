@@ -51,10 +51,10 @@ document.addEventListener("DOMContentLoaded", function () {
       minutes = 0;
       seconds = 0;
     } else {
-      days = Math.floor(t / (1000 * 60 * 60 * 24)),
-      hours = Math.floor((t / (1000 * 60 * 60)) % 24),
-      minutes = Math.floor((t / 1000 / 60) % 60),
-      seconds = Math.floor((t / 1000) % 60);
+      (days = Math.floor(t / (1000 * 60 * 60 * 24))),
+        (hours = Math.floor((t / (1000 * 60 * 60)) % 24)),
+        (minutes = Math.floor((t / 1000 / 60) % 60)),
+        (seconds = Math.floor((t / 1000) % 60));
     }
 
     return {
@@ -98,4 +98,38 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   setClock(".timer", deadline);
+
+  //Modal
+
+  const modalTrigger = document.querySelectorAll("[data-modal]");
+  const modalCloseBtn = document.querySelector("[data-close]");
+  const modalWindow = document.querySelector(".modal");
+
+  modalTrigger.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      // modalWindow.classList.add("show");
+      // modalWindow.classList.remove("hide");
+      modalWindow.classList.toggle("show");
+      document.body.style.overflow = "hidden";
+    });
+  });
+
+  function closeModal() {
+    modalWindow.classList.toggle("show");
+    document.body.style.overflow = "";
+  }
+
+  modalCloseBtn.addEventListener("click", closeModal);
+
+  modalWindow.addEventListener("click", (e) => {
+    if (e.target === modalWindow) {
+      closeModal();
+    }
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.code === "Escape" && modalWindow.classList.contains("show")) {
+      closeModal();
+    }
+  });
 });
