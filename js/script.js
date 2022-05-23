@@ -139,7 +139,7 @@ document.addEventListener("DOMContentLoaded", function () {
   function showModalByScroll() {
     if (
       window.pageYOffset + document.documentElement.clientHeight >=
-      document.documentElement.scrollHeight
+      document.documentElement.scrollHeight-1
     ) {
       openModal();
       window.removeEventListener("scroll", showModalByScroll);
@@ -229,4 +229,5 @@ document.addEventListener("DOMContentLoaded", function () {
     "menu__item",
     "big"
   ).render();
+  
 });
