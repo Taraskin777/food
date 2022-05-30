@@ -1,6 +1,7 @@
 // const { default: axios } = require("axios");
 
 document.addEventListener("DOMContentLoaded", function () {
+  
   // tabs
 
   const tabs = document.querySelectorAll(".tabheader__item");
@@ -217,8 +218,15 @@ document.addEventListener("DOMContentLoaded", function () {
   // });
 
   axios.get("http://localhost:3000/menu").then((data) => {
-      data.data.forEach(({img, altimg, title, descr, price}) => {
-      new MenuCard(img, altimg, title, descr, price, '.menu .container').render();
+    data.data.forEach(({ img, altimg, title, descr, price }) => {
+      new MenuCard(
+        img,
+        altimg,
+        title,
+        descr,
+        price,
+        ".menu .container"
+      ).render();
     });
   });
 
@@ -306,7 +314,60 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 4000);
   }
 
-  fetch("http://localhost:3000/menu")
-    .then((data) => data.json())
-    .then((res) => console.log(res));
+  // Slider
+
+  const slides = document.querySelectorAll(".offer__slide"),
+    prev = document.querySelector(".offer__slider-prev"),
+    next = document.querySelector(".offer__slider-next"),
+    image = document.querySelector(".offer__slider-wrapper"),
+    total = document.querySelector("#total"),
+    curr = document.querySelector("#current");
+
+  let slideIndex = 1;
+
+  showSlides(slideIndex);
+
+  if (slides.length < 10) {
+    total.textContent = `0${slides.length}`;
+  } else {
+    total.textContent = slides.length;
+  }
+
+  function showSlides(n) {
+    if (n > slides.length) {
+      slideIndex = 1;
+    }
+
+    if (n < 1) {
+      slideIndex = slides.length;
+    }
+
+    slides.forEach((item) => {
+      item.style.display = "none";
+    });
+
+    slides[slideIndex - 1].style.display = "block";
+
+    if (slides.length < 10) {
+      curr.textContent = `0${slideIndex}`;
+    } else {
+      curr.textContent = slideIndex;
+    }
+  }
+
+  function plusSlides(n) {
+    showSlides((slideIndex += n));
+  }
+
+  prev.addEventListener("click", () => {
+    plusSlides(-1);
+  });
+
+  next.addEventListener("click", () => {
+    plusSlides(1);
+  });
+
+  image.addEventListener("click", () => {
+    plusSlides(1);
+  });
 });
