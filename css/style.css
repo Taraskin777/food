@@ -401,9 +401,10 @@ a {
    border: none;
    text-align: center;
    font-size: 14px;
-   cursor: pointer;
    outline: 0;
-   transition: .3s all
+   transition: .3s all;
+   cursor: pointer;
+   
 }
 
 .calculating__choose-item_active {
@@ -752,7 +753,7 @@ a {
    list-style: none;
 } */
 
-.dot {
+/* .dot {
    box-sizing: content-box;
    flex: 0 1 auto;
    width: 30px;
@@ -766,4 +767,4 @@ a {
    border-bottom: 10px solid transparent;
    opacity: .5;
    transition: opacity .6s ease;
-}
+} */
