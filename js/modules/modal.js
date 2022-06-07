@@ -22,7 +22,6 @@ function openModal(modalSelector, modalTimerId) {
 
 function modal(triggerSelector, modalSelector, modalTimerId) {
 
-
   const modalTrigger = document.querySelectorAll(triggerSelector),
     modal = document.querySelector(modalSelector);
 
@@ -54,6 +53,8 @@ function modal(triggerSelector, modalSelector, modalTimerId) {
   }
   window.addEventListener("scroll", showModalByScroll);
 }
+
+
 
 export default modal;
 

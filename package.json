@@ -12,15 +12,26 @@
   },
   "author": "",
   "license": "ISC",
+  "browserslist": [
+    ">1%"
+  ],
   "bugs": {
     "url": "https://github.com/Taraskin777/food/issues"
   },
   "homepage": "https://github.com/Taraskin777/food#readme",
   "devDependencies": {
+    "@babel/cli": "^7.17.10",
+    "@babel/core": "^7.18.2",
+    "@babel/preset-env": "^7.18.2",
+    "babel-loader": "^8.2.5",
     "json-server": "^0.17.0",
     "webpack-cli": "^4.9.2"
   },
   "dependencies": {
-    "axios": "^0.27.2"
+    "@babel/polyfill": "^7.12.1",
+    "axios": "^0.27.2",
+    "core-js": "^3.22.8",
+    "es6-promise": "^4.2.8",
+    "nodelist-foreach-polyfill": "^1.2.0"
   }
 }
