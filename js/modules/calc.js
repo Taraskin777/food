@@ -93,7 +93,7 @@ function calc() {
     input.addEventListener("input", () => {
       if (input.value.match(/\D/g)) {
         input.style.border = "1px solid red";
-        input.value = "Тільки цифри!";
+        input.value = "Only numbers!";
       } else {
         input.style.border = "none";
       }

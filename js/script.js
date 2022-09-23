@@ -12,7 +12,7 @@ import slider from "./modules/slider";
 window.addEventListener("DOMContentLoaded", function () {
   const modalTimerId = setTimeout(
     () => openModal(".modal", modalTimerId),
-    300000
+    3000
   );
 
   tabs(".tabheader__item", ".tabcontent", ".tabheader__items","tabheader__item_active");
